@@ -1,0 +1,600 @@
+
+:root {
+    --primary-color: #45945d;
+    --secondary-color: #fccc6c;
+    --white: #fff;
+    --blue: #F6E9B2;
+    --green: #0A6847;
+    --yellow: #F3CA52;
+    --pink: #7ABA78;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-container h1 {
+    font-size: 22px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+.popup-notice {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+background-color: var(--primary-color);
+padding: 1rem 0;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+border-bottom: 60px solid var(--blue); /* Initial border color */
+animation: border-color-animation 30s infinite; /* Apply animation */
+}
+        @keyframes border-color-animation {
+0%, 100% { border-color: var(--blue); }
+25% { border-color: var(--green); }
+50% { border-color: var(--yellow); }
+75% { border-color: var(--pink); }
+}
+/* styles.css */
+
+.navbar {
+background-color: white;
+border-bottom: 2px solid transparent;
+transition: border-color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+color: #000; /* Black text for nav links */
+position: relative;
+}
+
+.navbar-nav .nav-link::after {
+content: '';
+display: block;
+width: 0;
+height: 2px;
+background-color: #45945d;
+transition: width 0.3s;
+position: absolute;
+bottom: -5px;
+left: 0;
+}
+
+.navbar-nav .nav-link:hover::after {
+width: 100%;
+}
+
+.navbar-nav .donate-btn {
+background-color: #fccc6c;
+color: #fff; /* White text for donate button */
+border-radius: 5px;
+padding: 5px 10px;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .donate-btn:hover {
+background-color: #e6b45e;
+color: #fff;
+}
+
+.navbar-toggler {
+border: none;
+}
+
+.navbar-toggler-icon {
+background-color: #45945d;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px; /* Adjust this value as needed */
+    width: auto;
+    margin-right: 10px; /* Adds some space between the logo and the brand name */
+    margin-top: auto;
+    padding-left: -50%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.auth-btn, .donate-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-btn {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.auth-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.donate-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.donate-btn:hover {
+    background-color: #ffd88a;
+}
+
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #06381f;
+    overflow: hidden;
+    height: 80vh; /* You can adjust this value as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+    .hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+    color: rgb(1, 27, 1);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Ensure the hero section adjusts to smaller screens */
+@media (max-width: 768px) {
+.hero {
+    height: 60vh; /* Adjust height for smaller screens */
+}
+}
+
+@media (max-width: 480px) {
+.hero {
+    height: 50vh; /* Adjust height for very small screens */
+}
+}
+
+
+.swiper-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0; /* Ensure it's behind content */
+}
+
+.swiper-slide img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Maintain image aspect ratio */
+}
+
+
+.hero-content {
+z-index: 10; /* Keep content above slider */
+max-width: 600px;
+padding: 20px;
+}
+
+.hero-content h1 {
+font-weight: 300;
+letter-spacing: 2px;
+font-size: 48px;
+margin-bottom: 20px;
+}
+
+.hero-content p {
+font-size: 18px;
+line-height: 1.6;
+margin-bottom: 30px;
+}
+
+.cta-btn {
+background-color: #fff;
+color: #45945d;
+padding: 10px 20px;
+font-size: 18px;
+text-decoration: none;
+border-radius: 5px;
+transition: background-color 0.3s ease, color 0.3s ease;
+display: inline-block;
+}
+
+.cta-btn:hover {
+background-color: #45945d;
+color: #fccc6c;
+}
+
+/* Optional: Swiper Navigation Buttons Styling */
+.swiper-button-next,
+.swiper-button-prev {
+color: white;
+}
+
+.wave-animation {
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 15vh;
+min-height: 100px;
+max-height: 150px;
+z-index: 5;
+}
+
+.waves {
+width: 100%;
+height: 100%;
+}
+
+.parallax > use {
+animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+animation-delay: -2s;
+animation-duration: 7s;
+fill: rgba(41, 141, 21, 0.486); /* #45945d with 30% opacity */
+}
+
+.parallax > use:nth-child(2) {
+animation-delay: -3s;
+animation-duration: 10s;
+fill: rgba(25, 112, 51, 0.781); /* #45945d with 20% opacity */
+}
+
+.parallax > use:nth-child(3) {
+animation-delay: -4s;
+animation-duration: 13s;
+fill: rgba(44, 155, 77, 0.514); /* #45945d with 10% opacity */
+}
+
+.parallax > use:nth-child(4) {
+animation-delay: -5s;
+animation-duration: 20s;
+fill: rgba(30, 167, 71, 0.274); /* #45945d with 5% opacity */
+}
+
+@keyframes move-forever {
+0% {
+    transform: translate3d(-90px, 0, 0);
+}
+100% {
+    transform: translate3d(85px, 0, 0);
+}
+}
+
+
+/* Content Sections */
+.section {
+    padding: 4rem 0;
+}
+
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* About Us */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Our Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Success Stories */
+.stories-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.story-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.story-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    height: 150px;
+}
+.signin-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    margin-top: 80px;
+}
+
+.signin-card {
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10%;
+}
+
+.signin-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.signin-left, .signin-right {
+    flex: 1;
+    padding: 2rem;
+}
+
+.signin-left {
+    background-color: #83b881;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.signin-logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.signin-form input {
+    margin-bottom: 1rem;
+}
+
+.social-signin {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.social-signin button {
+    flex: 1;
+    margin: 0 0.5rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.site-map ul, .privacy-policy ul {
+    list-style: none;
+}
+
+.site-map a, .privacy-policy a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+
+    .auth-buttons {
+        margin-top: 1rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-right: 0;
+    }
+    @media (max-width: 768px) {
+        .signin-row {
+            flex-direction: column;
+        }
+        
+        .signin-left, .signin-right {
+            padding: 1rem;
+        }
+        
+}

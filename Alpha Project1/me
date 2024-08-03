@@ -1,0 +1,234 @@
+ :root {
+            --primary-color: #45945d;
+            --secondary-color: #fccc6c;
+            --white: #fff;
+            --blue: #F6E9B2;
+            --green: #0A6847;
+            --yellow: #F3CA52;
+            --pink: #7ABA78;
+        }
+
+                body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 6px solid var(--blue); /* Initial border color */
+        animation: border-color-animation 30s infinite; /* Apply animation */
+        }
+                @keyframes border-color-animation {
+        0%, 100% { border-color: var(--blue); }
+        25% { border-color: var(--green); }
+        50% { border-color: var(--yellow); }
+        75% { border-color: var(--pink); }
+        }
+        /* styles.css */
+
+        .navbar {
+        background-color: white;
+        border-bottom: 4px solid transparent;
+        transition: border-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link {
+        color: #000; /* Black text for nav links */
+        position: relative;
+        }
+
+        .navbar-nav .nav-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: #45945d;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+        width: 100%;
+        }
+
+        .navbar-nav .donate-btn {
+        background-color: #fccc6c;
+        color: #fff; /* White text for donate button */
+        border-radius: 5px;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-nav .donate-btn:hover {
+        background-color: #e6b45e;
+        color: #fff;
+        }
+
+        .navbar-toggler {
+        border: none;
+        }
+
+        .navbar-toggler-icon {
+        background-color: #45945d;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 40px; /* Adjust this value as needed */
+            width: auto;
+            margin-right: 10px; /* Adds some space between the logo and the brand name */
+            margin-top: auto;
+            padding-left: -50%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-btn, .donate-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .auth-btn {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .auth-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .donate-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .donate-btn:hover {
+            background-color: #ffd88a;
+        }
+        
+        .btn-outline-light:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .signin-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            margin-top: 80px;
+        }
+
+        .signin-card {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .signin-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .signin-left, .signin-right {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .signin-left {
+            background-color: #83b881;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .signin-logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+
+        .signin-form input {
+            margin-bottom: 1rem;
+        }
+
+        .social-signin {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .social-signin button {
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .signin-row {
+                flex-direction: column;
+            }
+            
+            .signin-left, .signin-right {
+                padding: 1rem;
+            }
+        }

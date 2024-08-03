@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orphanage Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+                }
+                .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 100px auto; /* This centers the form and adds top margin */
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .required {
+            color: red;
+        }
+        .contact-options {
+            margin-top: 20px;
+        }
+        .contact-options a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #donateBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #resetBtn {
+            background-color: #f44336;
+            color: white;
+        }
+        .payment-info {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .payment-logos img {
+            height: 30px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">
+            <img src="images/logo.png" alt="Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Stories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="./singin.html"><button class="btn btn-outline-success me-2">Sign In</button></a>
+                <a href="./print-slpi.html"><button class="btn btn-outline-success me-2">Print slip</button></a>
+                <a href="./donate.html"><button class="btn btn-warning">Donate</button></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="form-container">
+    <h1>Donation Form</h1>
+    <form id="donationForm">
+        <label for="fullName">Full Name <span class="required">*</span></label>
+        <input type="text" id="fullName" name="fullName" required placeholder="First & Last Name">
+
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="Enter Email Address">
+
+        <label for="amount">Amount (NGN) <span class="required">*</span></label>
+        <input type="number" id="amount" name="amount" required min="0" placeholder="0">
+
+        <label for="telephone">Telephone</label>
+        <input type="text" id="telephone" name="telephone" placeholder="Enter Telephone">
+
+        <label>
+            <input type="checkbox" id="goodsDonation" name="goodsDonation"> I want to donate goods instead of money
+        </label>
+
+        <textarea id="goodsDescription" name="goodsDescription" style="display:none;" placeholder="Please describe the goods you wish to donate"></textarea>
+
+        <div class="contact-options">
+            <a href="https://wa.me/qr/BZ4P2GYA2Z3YE1" target="_blank">WhatsApp</a>
+            <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank">Facebook</a>
+            <a href="tel:YOUR_PHONE_NUMBER">Call Us</a>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" id="donateBtn">Donate</button>
+            <button type="reset" id="resetBtn">Reset</button>
+        </div>
+    </form>
+
+    <div class="payment-info">
+        <div class="payment-info">
+            <p>* Fields are compulsory</p>
+            <p>Secured by paystack</p>
+            <div class="payment-logos">
+                <img src="https://website-v3-assets.s3.amazonaws.com/assets/img/hero/Paystack-mark-white-twitter.png" alt="Paystack" style="background-color: #00c3f7; padding: 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Verve_logo.svg/1200px-Verve_logo.svg.png" alt="Verve">
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>About Us</h3>
+                <p>Orphanage Help and Care is dedicated to improving the lives of orphaned children worldwide, providing love, care, and support since 2010.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Quick Links</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Stay Connected</h3>
+                <div class="social-icons mb-3">
+                    <a href="#" class="me-2"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                </div>
+                <p>Subscribe to our newsletter:</p>
+                <form>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr class="mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2024 Orphanage Help and Care. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="text-light me-2">Privacy Policy</a>
+                <a href="#" class="text-light">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var handler = PaystackPop.setup({
+            key: 'YOUR_PUBLIC_KEY',
+            email: document.getElementById('email').value,
+            amount: document.getElementById('amount').value * 100, // Amount is in kobo
+            currency: 'NGN',
+            ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+            callback: function(response) {
+                alert('Payment successful. Transaction reference: ' + response.reference);
+            },
+            onClose: function() {
+                alert('Transaction was not completed, window closed.');
+            }
+        });
+        handler.openIframe();
+    });
+</script>
+</body>
+</html>
